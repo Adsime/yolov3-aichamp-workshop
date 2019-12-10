@@ -10,6 +10,10 @@ def load_image(image, x_scale=1, y_scale=1):
     return img
 
 def show_image(image):
-    plt.imshow(cv.cvtColor(image, cv.COLOR_BGR2RGB))
-    plt.show()
+    cv.imshow("image", image)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
+
+    #plt.imshow(cv.cvtColor(image, cv.COLOR_BGR2RGB))
+    #plt.show()
 

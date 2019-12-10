@@ -18,9 +18,9 @@ def extract_output_layers(net):
     names = net.getLayerNames()
     return [names[layer[0] - 1] for layer in net.getUnconnectedOutLayers()]
 
-def image_to_blob(image):
+def image_to_blob(image, scale):
     width, height, _ = image.shape
-    return cv.dnn.blobFromImage(image, 0.00392, (416, 416), (0,0,0), True, crop=False)
+    return cv.dnn.blobFromImage(image, scalefactor=scale, size=(416, 416), swapRB=True, crop=False)
 
 def forward(net, blob, output_layers):
     net.setInput(blob)
@@ -33,7 +33,10 @@ def process_result(image, outputs, classes, threshold=0.8):
     confidences = []
     boxes = []
 
+    print(len(outputs))
+
     for o in outputs:
+        print(len(o))
         for detection in o:
             scores = detection[5:]
             class_id = np.argmax(scores)
@@ -50,13 +53,12 @@ def process_result(image, outputs, classes, threshold=0.8):
                 boxes.append([x, y, w, h])
                 confidences.append(float(confidence))
                 class_ids.append(class_id)
-    indices = cv.dnn.NMSBoxes(boxes, confidences, threshold, 0.0)
+    #indices = cv.dnn.NMSBoxes(boxes, confidences, threshold, 0.0)
 
     for i, box in enumerate(boxes):
-        if i in indices:
-            x,y,w,h = box
-            label = str(classes[class_ids[i]])
-            cv.rectangle(image, (x, y), (x + w, y + h), (255, 255, 255), 2)
-            cv.putText(image, label, (x, y + 20), cv.FONT_HERSHEY_PLAIN, 1, (255, 255, 255), 2)
+        x,y,w,h = box
+        label = str(classes[class_ids[i]])
+        cv.rectangle(image, (x, y), (x + w, y + h), (0, 0, 0), 2)
+        cv.putText(image, label, (x, y + 20), cv.FONT_HERSHEY_PLAIN, 1, (255, 255, 255), 2)
 
     return boxes, confidence, class_ids
