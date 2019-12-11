@@ -32,7 +32,7 @@ def forward(net, blob, output_layers):
     net.setInput(blob)
     return net.forward(output_layers)
 
-def postprocess(image, outputs, classes, threshold=0.8, NMS=True):
+def postprocess(image, outputs, classes, threshold=0.8, nms_threshold=0.6):
     height, width, _ = image.shape
 
     image = deepcopy(image)
@@ -59,18 +59,16 @@ def postprocess(image, outputs, classes, threshold=0.8, NMS=True):
             class_ids.append(class_id)
 
 
-    indices = cv.dnn.NMSBoxes(boxes, confidences, threshold, 1)
+    indices = cv.dnn.NMSBoxes(boxes, confidences, threshold, nms_threshold)
 
     for i in indices:
         i = i[0]
-        print(confidences[i])
         label = str(classes[class_ids[i]])
         draw_box(image, label, boxes[i])
         
     return image
 
 def convertToCoordinates(x, y, w, h):
-    
     return [int(x), int(y), int(w), int(h)]
 
 def draw_box(image, label, box):
