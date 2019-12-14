@@ -14,13 +14,13 @@ For ```introduction.ipynb```, we need the following files:
 
 [YOLOv3 weight file](https://pjreddie.com/media/files/yolov3.weights)
 
-[COCO labels file](https://github.com/pjreddie/darknet/blob/master/data/coco.names)
+[COCO labels file](https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names)
 
 We have added a couple more configuration and their associated weights in the table below (with some extra stats for the nerds among us ;)): 
 
 config|weight|FLOPs|FPS|mAP
 ---|---|---|---|---
-|[config](https://pjreddie.com/media/files/yolov3-spp.weights)|[weight](https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-spp.cfg)|141.45 Bn|20|60.6
+|[config](https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-spp.cfg)|[weight](https://pjreddie.com/media/files/yolov3-spp.weights)|141.45 Bn|20|60.6
 |[config](https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-tiny.cfg)|[weight](https://pjreddie.com/media/files/yolov3-tiny.weights)|5.56 Bn|220|33.1
 
 More options can be found [here](https://pjreddie.com/darknet/yolo/). Keep in mind that this implementation might not support everything there.
