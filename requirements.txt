@@ -1,0 +1,4 @@
+jupyter
+opencv-python
+youtube_dl
+halo
