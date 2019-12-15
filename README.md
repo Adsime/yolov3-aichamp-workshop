@@ -23,7 +23,9 @@ config|weight|FLOPs|FPS|mAP
 |[config](https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-spp.cfg)|[weight](https://pjreddie.com/media/files/yolov3-spp.weights)|141.45 Bn|20|60.6
 |[config](https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-tiny.cfg)|[weight](https://pjreddie.com/media/files/yolov3-tiny.weights)|5.56 Bn|220|33.1
 
-**Note** If you decide to download your
+**Note** If you decide to download your own config, make sure you download the raw version of the file as shown in the image below:
+
+![Raw file!](data/jupyter_util/raw.PNG)
 
 More options can be found [here](https://pjreddie.com/darknet/yolo/). Keep in mind that this implementation might not support everything there.
 
@@ -52,6 +54,10 @@ Create a virtual environment:
 Activate it:
 
 ```.\venv\Scripts\activate.bat```
+
+If your terminal looks something like this, then the virtual environment is activated:
+
+![virtual env](data/jupyter_util/virtual_env.PNG)
 
 #### Step 4:
 
