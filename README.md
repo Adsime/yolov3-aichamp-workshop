@@ -23,14 +23,16 @@ config|weight|FLOPs|FPS|mAP
 |[config](https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-spp.cfg)|[weight](https://pjreddie.com/media/files/yolov3-spp.weights)|141.45 Bn|20|60.6
 |[config](https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-tiny.cfg)|[weight](https://pjreddie.com/media/files/yolov3-tiny.weights)|5.56 Bn|220|33.1
 
+**Note** If you decide to download your
+
 More options can be found [here](https://pjreddie.com/darknet/yolo/). Keep in mind that this implementation might not support everything there.
 
 Note that YOLO-320, YOLO-416 and YOLO-608 actually use the same configuration and weights. The difference is in the way we tell YOLO to scale the input. We will get back to this later in the workshop. It is infact the configuration and weight you were told to download at the start, so no need to download them again!
 
 #### Step 1:
-Download and install python 3.X (This workshop was made using ```3.7.5```. As of making this workshop, there is a bug with ```3.8```, so don't use it).
+Download and install python 3.X (This workshop was made using [3.7.5](https://www.python.org/ftp/python/3.7.5/python-3.7.5-amd64.exe). As of making this workshop, there is a bug with ```3.8```, so don't use it).
 
-Verify install with ```py -v``` using CMD.
+Verify install with ```py -V``` using CMD.
 
 #### Step 2:
 
